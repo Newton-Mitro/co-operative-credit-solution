@@ -1,0 +1,17 @@
+# @name login
+POST {{host}}/auth/login
+Content-Type: application/json
+Accept: application/json
+
+## Request Body
+
+
+### Set Token
+@token = {{login.response.headers.Token}}
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+# @name get_peoples
+GET http://localhost:3000/peoples?offset=10&limit=10&sort_by=email&order_by=desc&search_text=John&search_field=name
+Content-Type: application/json
+Accept: application/json
