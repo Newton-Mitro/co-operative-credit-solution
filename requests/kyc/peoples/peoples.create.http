@@ -1,0 +1,102 @@
+### Login Request
+# @name login
+POST {{host}}/auth/login
+Content-Type: application/json
+Accept: application/json
+
+## Request Body
+
+
+### Set Token
+@token = {{login.response.headers.Token}}
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+### Add People Request
+# @name add_people
+POST http://localhost:3000/peoples
+Content-Type: application/json
+Accept: application/json
+
+
+## Request Body
+{
+  "pin": "5555",
+  "nameEn": "Newton Mitro",
+  "nameBn": "নিউটন মিত্র",
+  "dateOfBirth": "1988/03/13",
+  "nid": "0000000000000000",
+  "birthRegistrationNumber": "",
+  "contactNumber": "+880-1704687376",
+  "alternateContactNumber": "",
+  "emergencyContactNumber": "",
+  "email": "newtonmitro@gamil.com",
+  "bloodGroup": "B+",
+  "gender": "Male",
+  "religion": "Christian",
+  "profession": "Engineer",
+  "maritalStatus": "Merried",
+  "isAlive": true,
+  "photo": "",
+  "addresses": [
+    {
+      "addressType": "Present Address",
+      "addressLineOne": "545/2 Senparaparbota",
+      "addressLineTwo": "Mirpur-10",
+      "country": "Bangladesh",
+      "division": "Dhaka",
+      "district": "Dhaka",
+      "subDistrict": "Kafrul"
+    }
+  ],
+  "familyAndRelatives": [
+    {
+      "relativeId": "string",
+      "relationship": "string"
+    }
+  ],
+  "educations": [
+    {
+      "educationLevel": "string",
+      "educationDegree": "string",
+      "instituteName": "string",
+      "majorSubject": "string",
+      "grade": "string",
+      "certificate": "string"
+    }
+  ],
+  "trainings": [
+    {
+      "courseTitle": "",
+      "instituteName": "",
+      "courseContent": "",
+      "result": "",
+      "duration": "",
+      "startDate": "",
+      "endDate": "",
+      "certificate": ""
+    }
+  ],
+  "employmentHistories": [
+    {
+      "organizationName": "",
+      "position": "",
+      "address": "",
+      "supervisorName": "",
+      "supervisorDesignation": "",
+      "supervisorPhone": "",
+      "jobResponsibilities": "",
+      "salary": "",
+      "startDate": "",
+      "endDate": "",
+      "tillNow": ""
+    }
+  ],
+  "attachments": [
+    {
+      "attachmentType": "National Identification",
+      "attachmentContent": "base64",
+      "attachmentExtension": "jpg",
+    }
+  ]
+}
