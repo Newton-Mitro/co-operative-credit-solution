@@ -17,7 +17,7 @@
   "religion": "",
   "profession": "",
   "maritalStatus": "",
-  "isAlive": true,
+  "alive": true,
   "photo": "",
   "addresses": [
     {
@@ -25,6 +25,7 @@
       "addressLineOne": "",
       "addressLineTwo": "",
       "country": "",
+      "city": "",
       "division": "",
       "district": "",
       "subDistrict": ""
@@ -54,8 +55,7 @@
       "result": "",
       "duration": "",
       "startDate": "",
-      "endDate": "",
-      "certificate": ""
+      "endDate": ""
     }
   ],
   "employmentHistories": [
