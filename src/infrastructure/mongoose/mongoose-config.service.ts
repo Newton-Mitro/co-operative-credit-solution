@@ -20,8 +20,14 @@ export class MongooseConfigService implements MongooseOptionsFactory {
     const isLocal = this.config.get('NODE_ENV') === 'LOCAL';
 
     const uri = isLocal
-      ? `mongodb://${username}:${password}@localhost:${port}/${db}?authSource=admin&readPreference=primary&directConnection=true&ssl=false`
-      : `mongodb+srv://${username}:${password}@${host}/${db}?retryWrites=true&w=majority`;
+      ? `mongodb://${username}:${encodeURIComponent(
+          password,
+        )}@localhost:${port}/${db}?authSource=admin&ssl=false`
+      : `mongodb+srv://${username}:${encodeURIComponent(
+          password,
+        )}@${host}/${db}`;
+
+    console.log(uri);
 
     return {
       uri,
