@@ -6,7 +6,7 @@ export class Address {
   @Prop({
     require: true,
     type: String,
-    enum: Object.keys(AddressType),
+    enum: Object.values(AddressType),
     default: AddressType.Permanent_Address,
   })
   addressType: AddressType;
@@ -33,7 +33,7 @@ export class Address {
   subDistrict: string;
 
   @Prop()
-  postalCode: string;
+  zipCode: string;
 }
 
 export const AddressSchema = SchemaFactory.createForClass(Address);

@@ -1,7 +1,6 @@
 ```json
 {
-  "_id": "",
-  "pin": "", // Unique
+  "identificationNumber": "", // Unique
   "nameEn": "",
   "nameBn": "",
   "dateOfBirth": "",
@@ -11,7 +10,7 @@
   "alternateContactNumber": "",
   "emergencyContactNumber": "",
   "registeredEmail": "", // Unique and Optional
-  "email": "",
+  "registeredEmail": "",
   "bloodGroup": "",
   "gender": "",
   "religion": "",
@@ -33,44 +32,8 @@
   ],
   "familyAndRelatives": [
     {
-      "relativeId": "",
+      "familyAndRelative": "",
       "relationship": ""
-    }
-  ],
-  "educations": [
-    {
-      "educationLevel": "",
-      "educationDegree": "",
-      "instituteName": "",
-      "majorSubject": "",
-      "grade": "",
-      "certificate": ""
-    }
-  ],
-  "trainings": [
-    {
-      "courseTitle": "",
-      "instituteName": "",
-      "courseContent": "",
-      "result": "",
-      "duration": "",
-      "startDate": "",
-      "endDate": ""
-    }
-  ],
-  "employmentHistories": [
-    {
-      "organizationName": "",
-      "position": "",
-      "address": "",
-      "supervisorName": "",
-      "supervisorDesignation": "",
-      "supervisorPhone": "",
-      "jobResponsibilities": "",
-      "salary": "",
-      "startDate": "",
-      "endDate": "",
-      "tillNow": ""
     }
   ],
   "attachments": ["attachmentId", "attachmentId", "attachmentId"]

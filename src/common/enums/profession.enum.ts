@@ -1,3 +1,4 @@
 export enum Profession {
-  SERVICE_HOLDER = 'Service Holder',
+  Service_Holder = 'Service Holder',
+  Rather_Not_Say = 'Rather Not Say',
 }

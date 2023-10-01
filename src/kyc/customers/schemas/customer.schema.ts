@@ -1,9 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Address, AddressSchema } from 'src/schemas/common/address.schema';
+import { Address, AddressSchema } from 'src/common/schemas/address.schema';
 
 @Schema({
   timestamps: true,
   versionKey: false,
+  discriminatorKey: 'customerType',
 })
 export class Customer {
   @Prop({ require: true, unique: true })
@@ -15,14 +16,14 @@ export class Customer {
   @Prop()
   nameBn: string;
 
-  @Prop({ unique: true })
-  email: string;
+  @Prop({ trim: true, unique: true, sparse: true })
+  registeredEmail: string;
 
   @Prop()
   alternateEmail: string;
 
-  @Prop({ unique: true })
-  mobileNumber: string;
+  @Prop({ trim: true, unique: true, sparse: true })
+  registeredMobile: string;
 
   @Prop()
   alternateContactNumber: string;
@@ -31,10 +32,10 @@ export class Customer {
   emergencyContactNumber: string;
 
   @Prop({
-    type: AddressSchema,
+    type: Array(AddressSchema),
     required: true,
   })
-  address: Address[];
+  addresses: Address[];
 }
 
 export const CustomerSchema = SchemaFactory.createForClass(Customer);

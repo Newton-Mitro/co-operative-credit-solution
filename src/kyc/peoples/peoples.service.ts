@@ -1,11 +1,23 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreatePeopleDto } from './dto/create-people.dto';
 import { UpdatePeopleDto } from './dto/update-people.dto';
+import { PERSON_MODEL, PersonDocument } from './schemas/person.schema';
 
 @Injectable()
 export class PeoplesService {
-  create(createPeopleDto: CreatePeopleDto) {
-    return 'This action adds a new people';
+  constructor(
+    @InjectModel(PERSON_MODEL)
+    private readonly personModel: Model<PersonDocument>,
+  ) {}
+
+  async create(createPeopleDto: CreatePeopleDto) {
+    console.log(createPeopleDto);
+
+    const createdPerson = await this.personModel.create(createPeopleDto);
+
+    return createdPerson;
   }
 
   findAll() {

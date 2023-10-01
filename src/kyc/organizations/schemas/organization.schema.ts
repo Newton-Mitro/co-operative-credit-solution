@@ -1,11 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Address, AddressSchema } from 'src/schemas/common/address.schema';
+import { Address, AddressSchema } from 'src/common/schemas/address.schema';
+import { Customer } from '../../customers/schemas/customer.schema';
 
-@Schema({
-  timestamps: true,
-  versionKey: false,
-})
-export class Person {
+@Schema()
+export class Organization extends Customer {
   @Prop({ require: true, unique: true })
   identificationNumber: string;
 
@@ -37,4 +35,7 @@ export class Person {
   address: Address[];
 }
 
-export const PersonSchema = SchemaFactory.createForClass(Person);
+export type OrganizationDocument = Organization & Document;
+export const ORGANIZATION_MODEL = Organization.name;
+
+export const OrganizationSchema = SchemaFactory.createForClass(Organization);

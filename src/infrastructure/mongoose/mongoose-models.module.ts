@@ -1,8 +1,8 @@
 import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { CustomerSchema } from './kyc/customers/customer.schema';
-import { OrganizationSchema } from './kyc/organizations/organization.schema';
-import { PersonSchema } from './kyc/peoples/person.schema';
+import { CustomerSchema } from '../../kyc/customers/schemas/customer.schema';
+import { OrganizationSchema } from '../../kyc/organizations/schemas/organization.schema';
+import { PersonSchema } from '../../kyc/peoples/schemas/person.schema';
 
 const MODELS = [
   {

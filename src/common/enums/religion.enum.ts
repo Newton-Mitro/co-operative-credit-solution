@@ -1,7 +1,7 @@
 export enum Religion {
-  CHRISTIAN = 'Christian',
-  ISLAM = 'Islam',
-  HINDU = 'Hindu',
-  BUDDHIST = 'Buddhist',
-  OTHERS = 'Others',
+  Christian = 'Christian',
+  Islam = 'Islam',
+  Hindu = 'Hindu',
+  Buddhist = 'Buddhist',
+  Others = 'Others',
 }
