@@ -1,5 +1,4 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Address, AddressSchema } from 'src/common/schemas/address.schema';
 import { Customer } from '../../customers/schemas/customer.schema';
 
 @Schema()
@@ -27,12 +26,6 @@ export class Organization extends Customer {
 
   @Prop()
   emergencyContactNumber: string;
-
-  @Prop({
-    type: AddressSchema,
-    required: true,
-  })
-  address: Address[];
 }
 
 export type OrganizationDocument = Organization & Document;

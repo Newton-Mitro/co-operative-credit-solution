@@ -1,10 +1,9 @@
 ```json
 {
   "_id": "",
-  "peopleId": "",
-  "organizationId": "",
+  "customerId": "",
   "attachmentType": "National Identification",
-  "attachmentContent": "base64",
-  "attachmentExtension": "jpg"
+  "fileContent": "base64",
+  "fileExtension": "jpg"
 }
 ```

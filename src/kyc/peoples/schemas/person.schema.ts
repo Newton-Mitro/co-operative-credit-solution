@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { IsEnum } from 'class-validator';
-import { Types } from 'mongoose';
 import { BloodGroup } from 'src/common/enums/blood-group.enum';
 import { Gender } from 'src/common/enums/gender.enum';
 import { MaritalStatus } from 'src/common/enums/marital-status.enum';
@@ -52,8 +51,14 @@ export class Person extends Customer {
   @Prop({ type: Array(FamilyAndRelativeSchema) })
   familyAndRelatives: FamilyAndRelative[];
 
-  @Prop({ type: Array(Types.ObjectId) })
-  attachments: string[] | Types.ObjectId[];
+  @Prop({ type: Array(FamilyAndRelativeSchema) })
+  educations: FamilyAndRelative[];
+
+  @Prop({ type: Array(FamilyAndRelativeSchema) })
+  trainings: FamilyAndRelative[];
+
+  @Prop({ type: Array(FamilyAndRelativeSchema) })
+  employmentHistories: FamilyAndRelative[];
 }
 
 export type PersonDocument = Person & Document;

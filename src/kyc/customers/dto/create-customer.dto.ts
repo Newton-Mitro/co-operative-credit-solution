@@ -1,13 +1,8 @@
 import { Optional } from '@nestjs/common';
 import { Type } from 'class-transformer';
-import {
-  IsEmail,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-  ValidateNested,
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, ValidateNested } from 'class-validator';
 import { AddressDTO } from 'src/common/dto/address.dto';
+import { CreateKycAttachmentDto } from 'src/kyc/kyc-attachments/dto/create-kyc-attachment.dto';
 
 export class CreateCustomerDTO {
   @IsString()
@@ -45,7 +40,7 @@ export class CreateCustomerDTO {
   @ValidateNested({ each: true })
   addresses: AddressDTO[];
 
-  @IsString({ each: true })
-  @IsOptional()
-  attachments: string[];
+  @Type(() => CreateKycAttachmentDto)
+  @ValidateNested({ each: true })
+  attachments: CreateKycAttachmentDto[];
 }

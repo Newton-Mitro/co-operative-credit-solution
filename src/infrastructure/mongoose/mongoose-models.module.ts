@@ -1,17 +1,34 @@
 import { Global, Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { CustomerSchema } from '../../kyc/customers/schemas/customer.schema';
-import { OrganizationSchema } from '../../kyc/organizations/schemas/organization.schema';
-import { PersonSchema } from '../../kyc/peoples/schemas/person.schema';
+import {
+  CUSTOMER_MODEL,
+  CustomerSchema,
+} from '../../kyc/customers/schemas/customer.schema';
+import {
+  KYC_ATTACHMENT_MODEL,
+  KycAttachmentSchema,
+} from '../../kyc/kyc-attachments/schemas/kyc-attachment.schema';
+import {
+  ORGANIZATION_MODEL,
+  OrganizationSchema,
+} from '../../kyc/organizations/schemas/organization.schema';
+import {
+  PERSON_MODEL,
+  PersonSchema,
+} from '../../kyc/peoples/schemas/person.schema';
 
 const MODELS = [
   {
-    name: 'Customer',
+    name: CUSTOMER_MODEL,
     schema: CustomerSchema,
     discriminators: [
-      { name: 'Person', schema: PersonSchema },
-      { name: 'Organization', schema: OrganizationSchema },
+      { name: PERSON_MODEL, schema: PersonSchema },
+      { name: ORGANIZATION_MODEL, schema: OrganizationSchema },
     ],
+  },
+  {
+    name: KYC_ATTACHMENT_MODEL,
+    schema: KycAttachmentSchema,
   },
 ];
 

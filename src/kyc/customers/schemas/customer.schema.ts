@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Types } from 'mongoose';
 import { Address, AddressSchema } from 'src/common/schemas/address.schema';
 
 @Schema({
@@ -36,6 +37,12 @@ export class Customer {
     required: true,
   })
   addresses: Address[];
+
+  @Prop({ type: Array(Types.ObjectId), ref: 'KycAttachment' })
+  attachments: string[] | Types.ObjectId[];
 }
+
+export type CustomerDocument = Customer & Document;
+export const CUSTOMER_MODEL = Customer.name;
 
 export const CustomerSchema = SchemaFactory.createForClass(Customer);

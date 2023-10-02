@@ -19,22 +19,22 @@ Accept: application/json
 {
   "identificationNumber": "125",
   "nameEn": "Newotn Mitro",
-  "nameBn": "Newotn Mitro",
+  "nameBn": "নিউটন মিত্র",
   "dateOfBirth": "Sun Oct 01 2023 16:47:40 GMT+0600",
-  "nid": "dfgdfgdfgg", 
-  "birthRegistrationNumber": "fsdfsdfsdf", 
-  "registeredMobile": "01704687376", 
+  "nid": "dfgdfgdfgg",
+  "birthRegistrationNumber": "fsdfsdfsdf",
+  "registeredMobile": "01704687376",
   "alternateContactNumber": "",
   "emergencyContactNumber": "",
   "registeredEmail": "newtonmitro@gmail.com",
   "alternateEmail": "",
   "bloodGroup": "B (+ve)",
-  "gender": "",
-  "religion": "",
-  "profession": "",
-  "maritalStatus": "",
+  "gender": "Male",
+  "religion": "Christian",
+  "profession": "Service Holder",
+  "maritalStatus": "Married",
   "alive": true,
-  "photo": "",
+  "photo": "iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAADMElEQVR4nOzVwQnAIBQFQYXff81RUkQCOyDj1YOPnbXWPmeTRef+/3O/OyBjzh3CD95BfqICMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMK0CMO0TAAD//2Anhf4QtqobAAAAAElFTkSuQmCC",
   "addresses": [
     {
       "addressType": "Present Address",
@@ -53,5 +53,40 @@ Accept: application/json
       "relationship": "Father"
     }
   ],
-  "attachments": ["507f1f77bcf86cd799439011"]
+  "attachments": [],
+  "educations": [
+    {
+      "educationLevel": "string",
+      "educationDegree": "string",
+      "instituteName": "string",
+      "majorSubject": "string",
+      "grade": "string"
+    }
+  ],
+  "trainings": [
+    {
+      "courseTitle": "",
+      "instituteName": "",
+      "courseContent": "",
+      "result": "",
+      "duration": "",
+      "startDate": "",
+      "endDate": ""
+    }
+  ],
+  "employmentHistories": [
+    {
+      "organizationName": "",
+      "position": "",
+      "address": "",
+      "supervisorName": "",
+      "supervisorDesignation": "",
+      "supervisorPhone": "",
+      "jobResponsibilities": "",
+      "salary": "",
+      "startDate": "",
+      "endDate": "",
+      "tillNow": ""
+    }
+  ]
 }
