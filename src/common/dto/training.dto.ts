@@ -1,4 +1,9 @@
-import { IsDate, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import {
+  IsDateString,
+  IsNotEmpty,
+  IsOptional,
+  IsString,
+} from 'class-validator';
 
 export class TrainingDTO {
   @IsString()
@@ -21,11 +26,11 @@ export class TrainingDTO {
   @IsNotEmpty()
   duration: string;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   startDate: Date;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   endDate: Date;
 }

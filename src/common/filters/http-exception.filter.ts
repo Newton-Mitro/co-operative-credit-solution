@@ -21,6 +21,8 @@ export class HttpExceptionFilter implements ExceptionFilter {
       message = exception.message;
     }
 
+    console.log(request.body);
+
     if (exception instanceof BadRequestException) {
       status = exception.getStatus();
       message = exception.getResponse();

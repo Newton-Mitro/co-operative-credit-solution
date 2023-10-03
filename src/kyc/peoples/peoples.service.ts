@@ -2,7 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
 import mongoose, { ClientSession, Model } from 'mongoose';
 import { mongooseTransactionHandler } from 'src/infrastructure/mongoose/mongooseTransactionHandler';
-import { KycAttachmentDocument } from '../kyc-attachments/schemas/kyc-attachment.schema';
+import {
+  KYC_ATTACHMENT_MODEL,
+  KycAttachmentDocument,
+} from '../kyc-attachments/schemas/kyc-attachment.schema';
 import { CreatePeopleDto } from './dto/create-people.dto';
 import { UpdatePeopleDto } from './dto/update-people.dto';
 import { PERSON_MODEL, Person, PersonDocument } from './schemas/person.schema';
@@ -12,12 +15,14 @@ export class PeoplesService {
   constructor(
     @InjectModel(PERSON_MODEL)
     private readonly personModel: Model<PersonDocument>,
-    @InjectModel(PERSON_MODEL)
+    @InjectModel(KYC_ATTACHMENT_MODEL)
     private readonly kycAttachmentModel: Model<KycAttachmentDocument>,
     @InjectConnection() private readonly connection: mongoose.Connection,
   ) {}
 
   async create(createPeopleDto: CreatePeopleDto) {
+    console.log(createPeopleDto);
+
     const personModel = new Person(); // map CreatePeopleDto to Person Model
     const createdPerson = new this.personModel(createPeopleDto);
     const person = await createdPerson.save();

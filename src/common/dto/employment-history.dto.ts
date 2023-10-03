@@ -1,6 +1,6 @@
 import {
   IsBoolean,
-  IsDate,
+  IsDateString,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -40,11 +40,11 @@ export class EmploymentHistoryDTO {
   @IsOptional()
   salary?: number;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   startDate: Date;
 
-  @IsDate()
+  @IsDateString()
   @IsNotEmpty()
   endDate: Date;
 

@@ -1,6 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+import { InjectConnection, InjectModel } from '@nestjs/mongoose';
+import mongoose, { Model } from 'mongoose';
+import {
+  KYC_ATTACHMENT_MODEL,
+  KycAttachmentDocument,
+} from '../kyc-attachments/schemas/kyc-attachment.schema';
 import { CreateOrganizationDto } from './dto/create-organization.dto';
 import { UpdateOrganizationDto } from './dto/update-organization.dto';
 import {
@@ -13,6 +17,9 @@ export class OrganizationsService {
   constructor(
     @InjectModel(ORGANIZATION_MODEL)
     private readonly organizationModel: Model<OrganizationDocument>,
+    @InjectModel(KYC_ATTACHMENT_MODEL)
+    private readonly kycAttachmentModel: Model<KycAttachmentDocument>,
+    @InjectConnection() private readonly connection: mongoose.Connection,
   ) {}
 
   async create(createOrganizationDto: CreateOrganizationDto) {

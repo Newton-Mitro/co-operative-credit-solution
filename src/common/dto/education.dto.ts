@@ -1,14 +1,13 @@
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { AddressType } from '../enums/address-type.enum';
 
 export class EducationDTO {
   @IsString()
   @IsNotEmpty()
-  educationLevel: AddressType;
+  educationLevel: string;
 
   @IsString()
   @IsNotEmpty()
-  educationDegree?: string;
+  educationDegree: string;
 
   @IsString()
   @IsNotEmpty()

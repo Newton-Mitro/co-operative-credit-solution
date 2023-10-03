@@ -1,8 +1,4 @@
-import {
-  BadRequestException,
-  ValidationError,
-  ValidationPipe,
-} from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
@@ -11,17 +7,24 @@ async function bootstrap() {
   // app.useGlobalFilters(new HttpExceptionFilter());
   app.useGlobalPipes(
     new ValidationPipe({
-      exceptionFactory: (errors: ValidationError[]) => {
-        const result = errors.map((error) => ({
-          property: error.property,
-          message: error.constraints[Object.keys(error.constraints)[0]],
-        }));
-        return new BadRequestException(result);
-      },
       transform: true,
       whitelist: true,
       forbidUnknownValues: true,
       stopAtFirstError: true,
+      disableErrorMessages: false,
+      // exceptionFactory: (errors: ValidationError[]) => {
+      //   try {
+      //     const result = errors.map((error) => ({
+      //       property: error.property,
+      //       message: error.constraints[Object.keys(error.constraints)[0]],
+      //     }));
+      //     return new BadRequestException(result);
+      //   } catch (error) {
+      //     console.log(errors);
+
+      //     return new BadRequestException(errors);
+      //   }
+      // },
     }),
   );
 

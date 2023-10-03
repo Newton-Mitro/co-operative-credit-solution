@@ -9,7 +9,7 @@ export class AddressDTO {
 
   @IsString()
   @IsNotEmpty()
-  addressLineOne?: string;
+  addressLineOne: string;
 
   @IsString()
   @IsOptional()
