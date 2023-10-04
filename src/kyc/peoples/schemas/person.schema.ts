@@ -24,10 +24,10 @@ export class Person extends Customer {
   @Prop({ require: true })
   dateOfBirth: Date;
 
-  @Prop({ trim: true, unique: true, sparse: true })
+  @Prop({ trim: true })
   nid: string;
 
-  @Prop({ trim: true, unique: true, sparse: true })
+  @Prop({ trim: true })
   birthRegistrationNumber: string;
 
   @Prop({ type: String, enum: Object.values(BloodGroup) })

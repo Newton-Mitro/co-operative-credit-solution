@@ -9,10 +9,16 @@ import { Address, AddressSchema } from './address.schema';
   discriminatorKey: 'customerType',
 })
 export class Customer {
-  @Prop({ require: true, unique: true, minLength: 6, maxLength: 10 })
+  @Prop({
+    require: true,
+    unique: true,
+    minLength: 6,
+    maxLength: 10,
+    trim: true,
+  })
   identificationNumber: string;
 
-  @Prop({ require: true })
+  @Prop({ require: true, trim: true })
   nameEn: string;
 
   @Prop()
@@ -20,20 +26,6 @@ export class Customer {
 
   @Prop({
     trim: true,
-    unique: true,
-    sparse: true,
-    validate: {
-      validator: (registeredEmail) => {
-        return /[a-z0-9._%+-]+@[a-z0-9.-]+([.]{1})+[a-z]{2,}$/.test(
-          registeredEmail,
-        );
-      },
-      message: (props) => `${props.value} is not a valid email address!`,
-    },
-  })
-  registeredEmail: string;
-
-  @Prop({
     validate: {
       validator: (registeredEmail) => {
         if (registeredEmail !== '') {
@@ -47,24 +39,55 @@ export class Customer {
       message: (props) => `${props.value} is not a valid email address!`,
     },
   })
+  registeredEmail: string;
+
+  @Prop({
+    validate: {
+      validator: (alternateEmail) => {
+        if (alternateEmail !== '') {
+          return /[a-z0-9._%+-]+@[a-z0-9.-]+([.]{1})+[a-z]{2,}$/.test(
+            alternateEmail,
+          );
+        } else {
+          return true;
+        }
+      },
+      message: (props) => `${props.value} is not a valid email address!`,
+    },
+  })
   alternateEmail: string;
 
   @Prop({
     trim: true,
-    unique: true,
-    sparse: true,
     validate: {
-      validator: (registeredEmail) => {
-        return /(^(([+]{1}|[0]{2})([0-9]{2}))?([0]{1})([-]{1})?([0-9]{4})([-]{1})?([0-9]{6}))$/.test(
-          registeredEmail,
-        );
+      validator: (registeredMobile) => {
+        if (registeredMobile !== '') {
+          return /(^(([+]{1}|[0]{2})([0-9]{2}))?([0]{1})([-]{1})?([0-9]{4})([-]{1})?([0-9]{6}))$/.test(
+            registeredMobile,
+          );
+        } else {
+          return true;
+        }
       },
       message: (props) => `${props.value} is not a valid mobile number!`,
     },
   })
   registeredMobile: string;
 
-  @Prop()
+  @Prop({
+    validate: {
+      validator: (alternateContactNumber) => {
+        if (alternateContactNumber !== '') {
+          return /(^(([+]{1}|[0]{2})([0-9]{2}))?([0]{1})([-]{1})?([0-9]{4})([-]{1})?([0-9]{6}))$/.test(
+            alternateContactNumber,
+          );
+        } else {
+          return true;
+        }
+      },
+      message: (props) => `${props.value} is not a valid mobile number!`,
+    },
+  })
   alternateContactNumber: string;
 
   @Prop()

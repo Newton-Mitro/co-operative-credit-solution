@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
 import mongoose, { ClientSession, Model } from 'mongoose';
 import { mongooseTransactionHandler } from 'src/infrastructure/mongoose/mongooseTransactionHandler';
@@ -21,12 +21,24 @@ export class PeoplesService {
   ) {}
 
   async create(createPeopleDto: CreatePeopleDto) {
-    console.log(createPeopleDto);
-
-    const personModel = new Person(); // map CreatePeopleDto to Person Model
     const createdPerson = new this.personModel(createPeopleDto);
-    const person = await createdPerson.save();
+    const errors = createdPerson.validateSync();
 
+    if (errors) {
+      const invalidFields = Object.keys(errors.errors);
+      const validationErrors = invalidFields.map(
+        (fieldName) => errors.errors[fieldName].message,
+      );
+
+      const result = {
+        message: validationErrors,
+        error: errors.name,
+        statusCode: HttpStatus.BAD_REQUEST,
+      };
+      throw new BadRequestException(result);
+    }
+
+    const person = await createdPerson.save();
     return person;
   }
 

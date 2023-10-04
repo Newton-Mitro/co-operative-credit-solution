@@ -3,7 +3,6 @@ import { Type } from 'class-transformer';
 import {
   ArrayNotEmpty,
   IsArray,
-  IsEmail,
   IsNotEmpty,
   IsString,
   ValidateNested,
@@ -25,15 +24,14 @@ export class CreateCustomerDTO {
   nameBn?: string;
 
   @IsString()
-  @IsEmail()
-  @IsNotEmpty()
+  @Optional()
   registeredEmail: string;
 
   @IsString()
   alternateEmail?: string;
 
   @IsString()
-  @IsNotEmpty()
+  @Optional()
   registeredMobile: string;
 
   @IsString()
