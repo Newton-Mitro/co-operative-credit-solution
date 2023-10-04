@@ -3,7 +3,6 @@ import {
   IsArray,
   IsBoolean,
   IsNotEmpty,
-  IsOptional,
   IsString,
   ValidateNested,
 } from 'class-validator';
@@ -13,23 +12,19 @@ import { ContactPersonDTO } from './contact-person.dto';
 
 export class CreateOrganizationDto extends CreateCustomerDTO {
   @IsString()
-  @IsOptional()
-  parentOrganization?: string;
+  parentOrganization: string;
 
   @IsString()
   @IsNotEmpty()
   phoneNumber: string;
 
   @IsString()
-  @IsOptional()
   faxNumber: string;
 
   @IsString()
-  @IsOptional()
   website: string;
 
   @IsBoolean()
-  @IsOptional()
   bankrupt: boolean;
 
   @IsArray()

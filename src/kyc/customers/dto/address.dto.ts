@@ -1,4 +1,4 @@
-import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
 import { Country } from 'src/kyc/peoples/enums/country.enum';
 import { AddressType } from '../../peoples/enums/address-type.enum';
 
@@ -12,34 +12,27 @@ export class AddressDTO {
   addressLineOne: string;
 
   @IsString()
-  @IsOptional()
-  addressLineTwo?: string;
+  addressLineTwo: string;
 
   @IsString()
-  @IsOptional()
-  city?: string;
+  city: string;
 
   @IsEnum(Country)
   @IsNotEmpty()
   country: string;
 
   @IsString()
-  @IsOptional()
-  state?: string;
+  state: string;
 
   @IsString()
-  @IsOptional()
   division: string;
 
   @IsString()
-  @IsOptional()
   district: string;
 
   @IsString()
-  @IsOptional()
   subDistrict: string;
 
   @IsString()
-  @IsOptional()
-  zipCode?: string;
+  zipCode: string;
 }

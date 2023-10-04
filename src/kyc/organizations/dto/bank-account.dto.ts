@@ -11,11 +11,11 @@ export class BankAccountDTO {
 
   @IsString()
   @IsNotEmpty()
-  routingNumber?: string;
+  routingNumber: string;
 
   @IsString()
   @IsNotEmpty()
-  accountNumber?: string;
+  accountNumber: string;
 
   @IsString()
   @IsNotEmpty()

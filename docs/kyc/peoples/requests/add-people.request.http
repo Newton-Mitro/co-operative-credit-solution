@@ -17,12 +17,12 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "identificationNumber": "P123459",
+  "identificationNumber": "P123451",
   "nameEn": "Newotn Mitro ",
   "nameBn": "নিউটন মিত্র",
   "dateOfBirth": "2023-10-03T07:03:15.622Z",
   "nid": "",
-  "birthRegistrationNumber": "",
+  "birthRegistrationNumber": "0001452765",
   "registeredMobile": "",
   "alternateContactNumber": "",
   "emergencyContactNumber": "",
@@ -31,7 +31,7 @@ Accept: application/json
   "bloodGroup": "B (+ve)",
   "gender": "Male",
   "religion": "Christian",
-  "profession": "Service Holder",
+  "profession": "Rather Not Say",
   "maritalStatus": "Married",
   "alive": true,
   "verifiedKyc": false,
@@ -42,10 +42,12 @@ Accept: application/json
       "addressLineOne": "Mirpur-10",
       "addressLineTwo": "",
       "country": "Bangladesh",
+      "state": "",
       "city": "",
       "division": "",
       "district": "",
-      "subDistrict": ""
+      "subDistrict": "",
+      "zipCode": ""
     }
   ],
   "familyAndRelatives": [

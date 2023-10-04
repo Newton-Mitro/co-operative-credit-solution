@@ -1,4 +1,3 @@
-import { Optional } from '@nestjs/common';
 import { Type } from 'class-transformer';
 import {
   ArrayNotEmpty,
@@ -20,27 +19,22 @@ export class CreateCustomerDTO {
   nameEn: string;
 
   @IsString()
-  @Optional()
-  nameBn?: string;
+  nameBn: string;
 
   @IsString()
-  @Optional()
   registeredEmail: string;
 
   @IsString()
-  alternateEmail?: string;
+  alternateEmail: string;
 
   @IsString()
-  @Optional()
   registeredMobile: string;
 
   @IsString()
-  @Optional()
-  alternateContactNumber?: string;
+  alternateContactNumber: string;
 
   @IsString()
-  @Optional()
-  emergencyContactNumber?: string;
+  emergencyContactNumber: string;
 
   @Type(() => AddressDTO)
   @IsArray()

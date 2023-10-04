@@ -15,6 +15,7 @@ import {
   FamilyAndRelativeSchema,
 } from './family-and-relative.schema';
 import { Training, TrainingSchema } from './training.schema';
+import { HttpStatus, BadRequestException } from '@nestjs/common';
 
 @Schema()
 export class Person extends Customer {
@@ -72,3 +73,15 @@ export type PersonDocument = Person & Document;
 export const PERSON_MODEL = Person.name;
 
 export const PersonSchema = SchemaFactory.createForClass(Person);
+
+PersonSchema.pre('validate', function (next) {
+  if (this.nid === '' && this.birthRegistrationNumber === '') {
+    const result = {
+      message: 'Please provide NID or Birth Registration Number',
+      error: 'Bad request',
+      statusCode: HttpStatus.BAD_REQUEST,
+    };
+    throw new BadRequestException(result);
+  }
+  next();
+});

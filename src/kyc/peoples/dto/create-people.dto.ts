@@ -1,3 +1,4 @@
+import { Optional } from '@nestjs/common';
 import { Type } from 'class-transformer';
 import {
   IsArray,
@@ -5,7 +6,6 @@ import {
   IsDateString,
   IsEnum,
   IsNotEmpty,
-  IsOptional,
   IsString,
   ValidateNested,
 } from 'class-validator';
@@ -26,28 +26,26 @@ export class CreatePeopleDto extends CreateCustomerDTO {
   dateOfBirth: Date;
 
   @IsString()
-  @IsOptional()
-  nid?: string;
+  nid: string;
 
-  @IsString({ each: true })
-  @IsOptional()
-  birthRegistrationNumber?: string;
+  @IsString()
+  birthRegistrationNumber: string;
 
   @IsString()
   @IsEnum(BloodGroup)
-  bloodGroup?: string;
+  bloodGroup: string;
 
   @IsString()
   @IsEnum(Gender)
-  gender?: string;
+  gender: string;
 
   @IsString()
   @IsEnum(Religion)
   religion: string;
 
   @IsString()
-  @IsOptional()
   @IsEnum(Profession)
+  @Optional()
   profession?: string;
 
   @IsString()
@@ -55,12 +53,10 @@ export class CreatePeopleDto extends CreateCustomerDTO {
   maritalStatus: string;
 
   @IsBoolean()
-  @IsOptional()
-  alive?: boolean;
+  alive: boolean;
 
   @IsString()
-  @IsOptional()
-  photo?: string;
+  photo: string;
 
   @Type(() => FamilyAndRelativeDTO)
   @IsArray()
