@@ -4,12 +4,8 @@ import { FileExtension } from '../enums/file-extension.enum';
 
 @Schema()
 export class KycAttachment {
-  //   @Prop({ require: true })
-  //   customerId: string;
-
   @Prop({
     require: true,
-    unique: true,
     type: String,
     enum: Object.values(AttachmentType),
   })
