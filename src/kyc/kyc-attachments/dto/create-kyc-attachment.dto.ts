@@ -1,5 +1,5 @@
 import { IsEnum, IsNotEmpty, IsString } from 'class-validator';
-import { BloodGroup } from 'src/common/enums/blood-group.enum';
+import { BloodGroup } from 'src/kyc/peoples/enums/blood-group.enum';
 
 export class CreateKycAttachmentDto {
   @IsString()

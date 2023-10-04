@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { AddressType } from 'src/common/enums/address-type.enum';
+import { AddressType } from 'src/kyc/peoples/enums/address-type.enum';
 
 @Schema()
 export class Address {

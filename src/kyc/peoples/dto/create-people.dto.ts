@@ -9,16 +9,16 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { EducationDTO } from 'src/common/dto/education.dto';
-import { EmploymentHistoryDTO } from 'src/common/dto/employment-history.dto';
-import { FamilyAndRelativeDTO } from 'src/common/dto/family-and-relative.dto';
-import { TrainingDTO } from 'src/common/dto/training.dto';
-import { BloodGroup } from 'src/common/enums/blood-group.enum';
-import { Gender } from 'src/common/enums/gender.enum';
-import { MaritalStatus } from 'src/common/enums/marital-status.enum';
-import { Profession } from 'src/common/enums/profession.enum';
-import { Religion } from 'src/common/enums/religion.enum';
 import { CreateCustomerDTO } from 'src/kyc/customers/dto/create-customer.dto';
+import { BloodGroup } from '../enums/blood-group.enum';
+import { Gender } from '../enums/gender.enum';
+import { MaritalStatus } from '../enums/marital-status.enum';
+import { Profession } from '../enums/profession.enum';
+import { Religion } from '../enums/religion.enum';
+import { EducationDTO } from './education.dto';
+import { EmploymentHistoryDTO } from './employment-history.dto';
+import { FamilyAndRelativeDTO } from './family-and-relative.dto';
+import { TrainingDTO } from './training.dto';
 
 export class CreatePeopleDto extends CreateCustomerDTO {
   @IsDateString()

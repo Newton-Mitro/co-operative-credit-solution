@@ -1,24 +1,20 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { IsEnum } from 'class-validator';
-import { BloodGroup } from 'src/common/enums/blood-group.enum';
-import { Gender } from 'src/common/enums/gender.enum';
-import { MaritalStatus } from 'src/common/enums/marital-status.enum';
-import { Profession } from 'src/common/enums/profession.enum';
-import { Religion } from 'src/common/enums/religion.enum';
-import {
-  Education,
-  EducationSchema,
-} from 'src/common/schemas/education.schema';
+import { Customer } from '../../customers/schemas/customer.schema';
+import { BloodGroup } from '../enums/blood-group.enum';
+import { Gender } from '../enums/gender.enum';
+import { MaritalStatus } from '../enums/marital-status.enum';
+import { Profession } from '../enums/profession.enum';
+import { Religion } from '../enums/religion.enum';
+import { Education, EducationSchema } from './education.schema';
 import {
   EmploymentHistory,
   EmploymentHistorySchema,
-} from 'src/common/schemas/employment-history.schema';
+} from './employment-history.schema';
 import {
   FamilyAndRelative,
   FamilyAndRelativeSchema,
-} from 'src/common/schemas/family-and-relative.schema';
-import { Training, TrainingSchema } from 'src/common/schemas/training.schema';
-import { Customer } from '../../customers/schemas/customer.schema';
+} from './family-and-relative.schema';
+import { Training, TrainingSchema } from './training.schema';
 
 @Schema()
 export class Person extends Customer {
@@ -34,24 +30,23 @@ export class Person extends Customer {
   @Prop({ trim: true, unique: true, sparse: true })
   birthRegistrationNumber: string;
 
-  @IsEnum(BloodGroup)
-  @Prop({ type: String })
+  @Prop({ type: String, enum: Object.values(BloodGroup) })
   bloodGroup: BloodGroup;
 
-  @IsEnum(Gender)
-  @Prop({ require: true, type: String })
+  @Prop({ require: true, type: String, enum: Object.values(Gender) })
   gender: Gender;
 
-  @IsEnum(Religion)
-  @Prop({ require: true, type: String })
+  @Prop({ require: true, type: String, enum: Object.values(Religion) })
   religion: Religion;
 
-  @IsEnum(Profession)
-  @Prop({ type: String, default: Profession.Rather_Not_Say })
+  @Prop({
+    type: String,
+    default: Profession.Rather_Not_Say,
+    enum: Object.values(Profession),
+  })
   profession: Profession;
 
-  @IsEnum(MaritalStatus)
-  @Prop({ require: true, type: String })
+  @Prop({ require: true, type: String, enum: Object.values(MaritalStatus) })
   maritalStatus: MaritalStatus;
 
   @Prop({ default: true })

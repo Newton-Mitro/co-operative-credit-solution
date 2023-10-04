@@ -8,8 +8,8 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { AddressDTO } from 'src/common/dto/address.dto';
 import { CreateKycAttachmentDto } from 'src/kyc/kyc-attachments/dto/create-kyc-attachment.dto';
+import { AddressDTO } from './address.dto';
 
 export class CreateCustomerDTO {
   @IsString()
@@ -30,7 +30,6 @@ export class CreateCustomerDTO {
   registeredEmail: string;
 
   @IsString()
-  @Optional()
   alternateEmail?: string;
 
   @IsString()

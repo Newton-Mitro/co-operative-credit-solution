@@ -7,9 +7,9 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { BankAccountDTO } from 'src/common/dto/bank-account.dto';
-import { ContactPersonDTO } from 'src/common/dto/contact-person.dto';
 import { CreateCustomerDTO } from 'src/kyc/customers/dto/create-customer.dto';
+import { BankAccountDTO } from './bank-account.dto';
+import { ContactPersonDTO } from './contact-person.dto';
 
 export class CreateOrganizationDto extends CreateCustomerDTO {
   @IsString()

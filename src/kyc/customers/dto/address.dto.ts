@@ -1,6 +1,6 @@
 import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { AddressType } from '../enums/address-type.enum';
-import { Country } from '../enums/country.enum';
+import { Country } from 'src/kyc/peoples/enums/country.enum';
+import { AddressType } from '../../peoples/enums/address-type.enum';
 
 export class AddressDTO {
   @IsEnum(AddressType)

@@ -1,19 +1,21 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { IsEnum } from 'class-validator';
-import { AttachmentType } from 'src/common/enums/attachment-type.enum';
-import { FileExtension } from 'src/common/enums/file-extension.emum';
+import { AttachmentType } from '../enums/attachment-type.enum';
+import { FileExtension } from '../enums/file-extension.enum';
 
 @Schema()
 export class KycAttachment {
   //   @Prop({ require: true })
   //   customerId: string;
 
-  @Prop({ require: true, unique: true, type: String })
-  @IsEnum(AttachmentType)
+  @Prop({
+    require: true,
+    unique: true,
+    type: String,
+    enum: Object.values(AttachmentType),
+  })
   attachmentType: AttachmentType;
 
-  @Prop({ require: true, type: String })
-  @IsEnum(FileExtension)
+  @Prop({ require: true, type: String, enum: Object.values(FileExtension) })
   fileExtension: FileExtension;
 
   @Prop({ require: true })
