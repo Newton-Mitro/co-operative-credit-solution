@@ -43,14 +43,14 @@ export class PeoplesService {
   }
 
   findAll() {
-    return `This action returns all peoples`;
+    return this.personModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} people`;
+  findOne(id: string) {
+    return this.personModel.findById(id);
   }
 
-  async update(id: number, updatePeopleDto: UpdatePeopleDto) {
+  async update(id: string, updatePeopleDto: UpdatePeopleDto) {
     const transactionHandlerMethod = async (
       session: ClientSession,
     ): Promise<any> => {
@@ -74,7 +74,7 @@ export class PeoplesService {
     return person;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} people`;
   }
 }
