@@ -1,5 +1,5 @@
 # @name search_customer
-GET http://localhost:3000/customers/search?searchText=Dhaka
+GET http://localhost:3000/customers/search?searchText=Ne
 Content-Type: application/json
 Accept: application/json
 

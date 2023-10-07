@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectConnection, InjectModel } from '@nestjs/mongoose';
 import mongoose, { Model } from 'mongoose';
 import {
@@ -30,19 +30,63 @@ export class OrganizationsService {
     return createdOrganization;
   }
 
-  findAll() {
-    return `This action returns all organizations`;
+  async findAll() {
+    const resultPerPage = 5;
+    const page = 1 - 1;
+    const organizations = await this.organizationModel
+      .find({})
+      .select([
+        '_id',
+        'identificationNumber',
+        'nameEn',
+        'nameBn',
+        'registeredEmail',
+        'alternateEmail',
+        'registeredMobile',
+        'alternateContactNumber',
+        'emergencyContactNumber',
+        'dateOfBirth',
+        'nid',
+        'birthRegistrationNumber',
+        'bloodGroup',
+        'gender',
+        'religion',
+        'profession',
+        'maritalStatus',
+        'customerType',
+      ])
+      .sort({ nameEn: 'asc' })
+      .limit(resultPerPage)
+      .skip(resultPerPage * page);
+
+    return organizations;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} organization`;
+  async findOne(id: string) {
+    const existingOrganization = await this.organizationModel.findById(id);
+    if (!existingOrganization) {
+      throw new NotFoundException(`Organization #${id} not found`);
+    }
+    return existingOrganization;
   }
 
-  update(id: number, updateOrganizationDto: UpdateOrganizationDto) {
-    return `This action updates a #${id} organization`;
+  async update(id: string, updateOrganizationDto: UpdateOrganizationDto) {
+    const updatedOrganization = await this.organizationModel.findByIdAndUpdate(
+      id,
+      updateOrganizationDto,
+      { new: true },
+    );
+    if (!updatedOrganization) {
+      throw new NotFoundException(`Organization #${id} not found`);
+    }
+    return updatedOrganization;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} organization`;
+  async remove(id: string) {
+    const removedOrganization = await this.organizationModel.findById(id);
+    if (!removedOrganization) {
+      throw new NotFoundException(`Organization #${id} not found`);
+    }
+    return removedOrganization;
   }
 }

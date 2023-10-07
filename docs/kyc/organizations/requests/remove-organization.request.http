@@ -1,1 +1,4 @@
-DELETE api/organizations/:id
+# @name removeOrganization
+DELETE  http://localhost:3000/organizations/sdfgsdf
+Content-Type: application/json
+Accept: application/json

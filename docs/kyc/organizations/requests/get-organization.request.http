@@ -1,17 +1,4 @@
-# @name login
-POST {{host}}/auth/login
-Content-Type: application/json
-Accept: application/json
-
-## Request Body
-
-
-### Set Token
-@token = {{login.response.headers.Token}}
-
-# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-# @name findOrganizations
-GET api/organizations/:id
+# @name findOrganization
+GET http://localhost:3000/organizations/:id
 Content-Type: application/json
 Accept: application/json

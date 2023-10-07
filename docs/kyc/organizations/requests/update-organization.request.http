@@ -1,1 +1,4 @@
-PUT api/organizations/:id
+# @name updateOrganization
+PUT http://localhost:3000/organizations/123
+Content-Type: application/json
+Accept: application/json
