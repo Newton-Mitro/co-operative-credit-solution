@@ -1,0 +1,4 @@
+# @name get_customer
+GET http://localhost:3000/customers/651ea249f0155b0f7ef3c1bf
+Content-Type: application/json
+Accept: application/json

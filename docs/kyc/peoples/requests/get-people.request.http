@@ -1,1 +1,4 @@
-GET api/peoples/:id
+# @name get_people
+GET http://localhost:3000/peoples/651ea249f0155b0f7ef3c1bf
+Content-Type: application/json
+Accept: application/json

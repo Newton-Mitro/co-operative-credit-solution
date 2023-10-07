@@ -1,1 +1,4 @@
-DELETE api/peoples/:id
+# @name remove_people
+DELETE  http://localhost:3000/peoples/651ea249f0155b0f7ef3c1bf
+Content-Type: application/json
+Accept: application/json
