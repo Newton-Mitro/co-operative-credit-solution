@@ -44,7 +44,7 @@ export class Customer {
   @Prop({
     validate: {
       validator: (alternateEmail) => {
-        if (alternateEmail !== '') {
+        if (alternateEmail) {
           return /[a-z0-9._%+-]+@[a-z0-9.-]+([.]{1})+[a-z]{2,}$/.test(
             alternateEmail,
           );
@@ -61,7 +61,7 @@ export class Customer {
     trim: true,
     validate: {
       validator: (registeredMobile) => {
-        if (registeredMobile !== '') {
+        if (registeredMobile) {
           return /(^(([+]{1}|[0]{2})([0-9]{2}))?([0]{1})([-]{1})?([0-9]{4})([-]{1})?([0-9]{6}))$/.test(
             registeredMobile,
           );
@@ -77,7 +77,7 @@ export class Customer {
   @Prop({
     validate: {
       validator: (alternateContactNumber) => {
-        if (alternateContactNumber !== '') {
+        if (alternateContactNumber) {
           return /(^(([+]{1}|[0]{2})([0-9]{2}))?([0]{1})([-]{1})?([0-9]{4})([-]{1})?([0-9]{6}))$/.test(
             alternateContactNumber,
           );

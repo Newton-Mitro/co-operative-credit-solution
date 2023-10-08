@@ -5,6 +5,7 @@ import {
   KYC_ATTACHMENT_MODEL,
   KycAttachmentDocument,
 } from '../kyc-attachments/schemas/kyc-attachment.schema';
+import { FindAllQueryDto } from './dto/find-all-query.dto';
 import { CUSTOMER_MODEL, CustomerDocument } from './schemas/customer.schema';
 
 @Injectable()
@@ -17,11 +18,26 @@ export class CustomersService {
     @InjectConnection() private readonly connection: mongoose.Connection,
   ) {}
 
-  async search(searchText: string) {
-    const resultPerPage = 5;
-    const page = 1 - 1;
+  async search(searchText: string, findAllQueryDto: FindAllQueryDto) {
+    // {
+    //   $and: [
+    //     { $or: [{ nameEn: regex }, { description: regex }] },
+    //     { category: value.category },
+    //     { city: value.city },
+    //   ],
+    // }
+
+    const { order_by, limit, page, sort_by } = findAllQueryDto;
+    const regex = new RegExp(searchText, 'i');
     const customers = await this.customerModel
-      .find({ nameEn: { $regex: '.*' + searchText + '.*', $options: 'i' } })
+      .find({
+        $or: [
+          { nameEn: regex },
+          { identificationNumber: regex },
+          { nid: regex },
+          { birthRegistrationNumber: regex },
+        ],
+      })
       .select([
         '_id',
         'identificationNumber',
@@ -42,15 +58,41 @@ export class CustomersService {
         'maritalStatus',
         'customerType',
       ])
-      .sort({ nameEn: 'asc' })
-      .limit(resultPerPage)
-      .skip(resultPerPage * page);
+      .sort({ [sort_by]: order_by })
+      .limit(limit)
+      .skip(limit * (page - 1));
 
     return customers;
   }
 
-  async findAll() {
-    const customers = await this.customerModel.find();
+  async findAll(findAllQueryDto: FindAllQueryDto) {
+    const { order_by, limit, page, sort_by } = findAllQueryDto;
+
+    const customers = await this.customerModel
+      .find()
+      .select([
+        '_id',
+        'identificationNumber',
+        'nameEn',
+        'nameBn',
+        'registeredEmail',
+        'alternateEmail',
+        'registeredMobile',
+        'alternateContactNumber',
+        'emergencyContactNumber',
+        'dateOfBirth',
+        'nid',
+        'birthRegistrationNumber',
+        'bloodGroup',
+        'gender',
+        'religion',
+        'profession',
+        'maritalStatus',
+        'customerType',
+      ])
+      .sort({ [sort_by]: order_by })
+      .limit(limit)
+      .skip(limit * (page - 1));
     return customers;
   }
 

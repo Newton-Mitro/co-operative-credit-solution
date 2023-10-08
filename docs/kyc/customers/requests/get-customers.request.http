@@ -1,4 +1,4 @@
 # @name get_customers
-GET http://localhost:3000/customers?offset=10&limit=10&sort_by=email&order_by=desc&search_text=John&search_field=name
+GET http://localhost:3000/customers?page=1&limit=2&sort_by=customerType&order_by=asc
 Content-Type: application/json
 Accept: application/json

@@ -3,6 +3,7 @@ import {
   ArrayNotEmpty,
   IsArray,
   IsNotEmpty,
+  IsOptional,
   IsString,
   ValidateNested,
 } from 'class-validator';
@@ -19,21 +20,25 @@ export class CreateCustomerDTO {
   nameEn: string;
 
   @IsString()
+  @IsOptional()
   nameBn: string;
 
   @IsString()
   registeredEmail: string;
 
   @IsString()
+  @IsOptional()
   alternateEmail: string;
 
   @IsString()
   registeredMobile: string;
 
   @IsString()
+  @IsOptional()
   alternateContactNumber: string;
 
   @IsString()
+  @IsOptional()
   emergencyContactNumber: string;
 
   @Type(() => AddressDTO)
@@ -44,6 +49,7 @@ export class CreateCustomerDTO {
 
   @Type(() => CreateKycAttachmentDto)
   @IsArray()
+  @IsOptional()
   @ValidateNested({ each: true })
   attachments: CreateKycAttachmentDto[];
 }

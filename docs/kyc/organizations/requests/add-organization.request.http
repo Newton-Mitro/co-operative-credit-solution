@@ -4,7 +4,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "identificationNumber": "B-123456",
+  "identificationNumber": "B-123459",
   "nameEn": "Dhaka Credit",
   "nameBn": "Dhaka Credit",
   "registeredEmail": "info@cccul.com",
@@ -27,7 +27,9 @@ Accept: application/json
       "city": "",
       "division": "",
       "district": "",
-      "subDistrict": ""
+      "subDistrict": "",
+      "state": "",
+      "zipCode": ""
     }
   ],
   "branches": [],
