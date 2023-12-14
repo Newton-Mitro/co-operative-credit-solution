@@ -1,19 +1,21 @@
 ```json
 {
   "_id": "",
-  "oin": "", // Unique
-  "organizationNameEn": "",
-  "organizationNameBn": "",
+  "identificationNumber": "", // Unique
+  "customerNameEn": "",
+  "customerNameBn": "",
   "tin": "",
   "registrationNumber": "",
+  "registeredMobile": "",
   "mobileNumber": "",
   "phoneNumber": "",
   "faxNumber": "",
+  "registeredEmail": "",
   "email": "",
   "address": "",
   "status": "",
   "logo": "",
-  "branches": ["organization_id", "organization_id", "organization_id"],
+  "parentOrganization": "", // Parent Reference
   "contactPeoples": [
     {
       "contactPersonPin": "",
@@ -30,11 +32,6 @@
       "branch": "",
       "routingNumber": ""
     }
-  ],
-  "attachments": ["attachmentId", "attachmentId"]
+  ]
 }
 ```
-
-PUT api/organizations/:id/branches
-
-PUT api/organizations/:id/attachments

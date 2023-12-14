@@ -59,20 +59,10 @@
     }
   ],
   "totalAccountSurety": 0,
-  "collaterals": [
-    "account_collateral_id",
-    "account_collateral_id",
-    "account_collateral_id"
-  ],
   "numberOfInstallment": 0,
   "installmentAmount": 0,
   "totalScheduleDefaultMonth": 0,
   "continuousScheduleDefaultMonth": 0,
-  "schedules": [
-    "account_schedule_id",
-    "account_schedule_id",
-    "account_schedule_id"
-  ],
   "defaulterType": "Regular | Loan Defaulter | Surety Defaulter | Schedule Defaulter | Share Defaulter | Not Applicable",
   "accountStatus": "Inactive | Active | Frozen | Dormant | Locked"
 }

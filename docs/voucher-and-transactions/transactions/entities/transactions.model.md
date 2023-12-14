@@ -1,7 +1,7 @@
 ```json
 {
   "_id": "",
-  "voucherId": "",
+  "voucherId": "", // parent reference
   "voucherStatus": "Draft | Canceled | Pending | Approved",
   "transactionDate": "",
   "generalLedgerAccount": {

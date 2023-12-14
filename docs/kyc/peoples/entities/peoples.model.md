@@ -1,16 +1,17 @@
 ```json
 {
+  "_id": "",
   "identificationNumber": "", // Unique
-  "nameEn": "",
-  "nameBn": "",
+  "customerNameEn": "",
+  "customerNameBn": "",
   "dateOfBirth": "",
   "nid": "", // Unique and Optional
   "birthRegistrationNumber": "", // Unique and Optional
   "registeredMobile": "", // Unique and Optional
-  "alternateContactNumber": "",
-  "emergencyContactNumber": "",
+  "mobileNumber": "",
+  "phoneNumber": "",
   "registeredEmail": "", // Unique and Optional
-  "registeredEmail": "",
+  "email": "",
   "bloodGroup": "",
   "gender": "",
   "religion": "",
@@ -29,13 +30,6 @@
       "district": "",
       "subDistrict": ""
     }
-  ],
-  "familyAndRelatives": [
-    {
-      "familyAndRelative": "",
-      "relationship": ""
-    }
-  ],
-  "attachments": ["attachmentId", "attachmentId", "attachmentId"]
+  ]
 }
 ```
